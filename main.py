@@ -119,34 +119,35 @@ def view_seats(train_number):
     else:
         st.error(f"No such Train with Number {train_number} is available")
 
+# **Set Theme Before Function Definition**
+st.set_page_config(
+    page_title="Railway Reservation System",
+    page_icon="🚂",
+    layout="wide",  # For a wider layout
+    initial_sidebar_state="expanded",  # Expand the sidebar
+)
+
+st.theme.use("light")  # "light" or "dark"
+
+st.markdown(
+    """
+    <style>
+        .main {
+            background-color: #f5f5f5; /* Background color */
+        }
+        .stButton button {
+            background-color: #007bff; /* Button color */
+            color: white;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.image("train_icon.png", width=100)
+st.markdown('<h1 style="text-align:center;">Railway Reservation System</h1>', unsafe_allow_html=True)
+
 def train_functions():
-    st.set_page_config(
-        page_title="Railway Reservation System",
-        page_icon="🚂",
-        layout="wide",  # For a wider layout
-        initial_sidebar_state="expanded",  # Expand the sidebar
-    )
-
-    st.theme.use("light")  # "light" or "dark"
-
-    st.markdown(
-        """
-        <style>
-            .main {
-                background-color: #f5f5f5; /* Background color */
-            }
-            .stButton button {
-                background-color: #007bff; /* Button color */
-                color: white;
-            }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    st.image("train_icon.png", width=100)
-    st.markdown('<h1 style="text-align:center;">Railway Reservation System</h1>', unsafe_allow_html=True)
-
     with st.container():
         st.header("Train Administrator")
         functions = st.sidebar.selectbox(
